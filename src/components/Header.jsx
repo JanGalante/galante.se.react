@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../logo.svg";
 
 const listStyle = {
@@ -18,15 +18,16 @@ const Header = () => {
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <div style={logoStyle}>J|G</div>
         <h1 className="App-title">Welcome to Galante</h1>
-        <ul className="menu">
+        <ul className="nav-bar">
           <li style={listStyle}>
-            <Link to="/">Home</Link>
+            {/* <NavLink className="nav-bar__link" activeClassName="nav-bar__link--selected" to="/team/1">Team 1</NavLink> */}
+            <NavLink exact to="/" className="nav-bar__link" activeClassName="nav-bar__link--selected">Home</NavLink>
           </li>
           <li style={listStyle}>
-            <Link to="/about">About</Link>
+            <NavLink to="/about" className="nav-bar__link" activeClassName="nav-bar__link--selected">About</NavLink>
           </li>
           <li style={listStyle}>
-            <Link to="/topics">Topics</Link>
+            <NavLink to="/topics" className="nav-bar__link" activeClassName="nav-bar__link--selected">Topics</NavLink>
           </li>
         </ul>
       </header>

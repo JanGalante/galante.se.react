@@ -1,24 +1,24 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
-import Header from './components/Header.jsx';
+import Home from "./views/Home.jsx";
+import About from "./views/About.jsx";
+import Topics from "./views/Topics.jsx";
+import Header from "./components/Header.jsx";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        {/* <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header> */}
-        <Header />
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+// class App extends Component {
+const App = () => (
+  <Router>
+    <div className="App">
+      <Header />
+
+      {/* Decide page to show */}
+      <Route exact path="/" component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/topics" component={Topics} />
+    </div>
+  </Router>
+);
 
 export default App;
 

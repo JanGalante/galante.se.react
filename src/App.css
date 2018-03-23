@@ -1,3 +1,14 @@
+:root {
+  --green: #79C753;
+  --red: #FF4136;
+  --yellow: #F6D155;
+  --gray: #AAA;
+  --black: #222;
+  --silver: #DDD;
+  --blue: #1b98ba;
+  --menta: #9acbc3;
+}
+
 .App {
   text-align: center;
 }
@@ -41,23 +52,25 @@
 
 .nav-bar__link {
   display: block;
-  color: white;
+  color: var(--blue);
   text-align: center;
   padding: 16px;
   text-decoration: none;
 }
 
-.nav-bar li a:hover {
+/* .nav-bar li a:hover { */
+.nav-bar__link:hover {
   background-color: #111111;
   color: white;
   text-decoration: none;
+
 }
 
 
 .nav-bar__link--selected
 {
   background-color: #111111;
-  color: aqua;
-  text-decoration: none;
+  color: var(--menta) !important;
+  text-decoration: none !important;
 }
 

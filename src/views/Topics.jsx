@@ -7,7 +7,7 @@ const backgroundStyle = {
 
 const Topics = () => (
   <div>
-    <p className="App-intro">Not so may topics as expected</p>
+    <p className="App-intro">Not so many topics as expected</p>
   </div>
 );
 

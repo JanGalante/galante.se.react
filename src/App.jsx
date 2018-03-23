@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Loadable from 'react-loadable';
 import "./App.css";
@@ -7,25 +7,32 @@ import Home from "./views/Home.jsx";
 import About from "./views/About.jsx";
 import NoMatch from "./views/NoMatch.jsx";
 
-//import Topics from "./views/Topics.jsx";
 const LoadableTopics = Loadable({
   loader: () => import('./views/Topics.jsx'),
-  loading() {
-    return <div>Loading...</div>
-  }
+  loading() { return <div>Loading...</div> }
 });
+const LoadableRepositories = Loadable({ 
+  loader: () => import('./views/Repositories.jsx'),
+  loading() { return <div>Loading...</div> }
+ });
+
+// start load topics bundle when hovering in the menu
+const onMouseOverTopics = () => {
+  LoadableTopics.preload();
+}
 
 // class App extends Component {
 const App = () => (
   <Router>
     <div className="App">
-      <Header />
+      <Header onMouseOverTopics={onMouseOverTopics}  />
 
       {/* Decide page to show */}
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/topics" component={LoadableTopics} />
+        <Route path="/repositories" component={LoadableRepositories} />
         <Route component={NoMatch} />
       </Switch>
     </div>

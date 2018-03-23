@@ -1,1 +1,2 @@
 * [React training - React router](https://reacttraining.com/react-router/web/example/basic)
+* [React loadable - For easy bundlesplitting on component level... and preloading](https://github.com/jamiebuilds/react-loadable)

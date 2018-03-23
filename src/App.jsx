@@ -1,10 +1,18 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Loadable from 'react-loadable';
 import "./App.css";
+import Header from "./components/Header.jsx";
 import Home from "./views/Home.jsx";
 import About from "./views/About.jsx";
-import Topics from "./views/Topics.jsx";
-import Header from "./components/Header.jsx";
+
+//import Topics from "./views/Topics.jsx";
+const LoadableTopics = Loadable({
+  loader: () => import('./views/Topics.jsx'),
+  loading() {
+    return <div>Loading...</div>
+  }
+});
 
 // class App extends Component {
 const App = () => (
@@ -13,9 +21,11 @@ const App = () => (
       <Header />
 
       {/* Decide page to show */}
-      <Route exact path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/topics" component={Topics} />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/topics" component={LoadableTopics} />
+      </Switch>
     </div>
   </Router>
 );

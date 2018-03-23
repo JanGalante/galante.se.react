@@ -5,6 +5,7 @@ import "./App.css";
 import Header from "./components/Header.jsx";
 import Home from "./views/Home.jsx";
 import About from "./views/About.jsx";
+import NoMatch from "./views/NoMatch.jsx";
 
 //import Topics from "./views/Topics.jsx";
 const LoadableTopics = Loadable({
@@ -25,6 +26,7 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/topics" component={LoadableTopics} />
+        <Route component={NoMatch} />
       </Switch>
     </div>
   </Router>

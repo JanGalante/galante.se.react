@@ -6,8 +6,8 @@ const listStyle = {
   color: "aqua"
 };
 const logoStyle = {
-  "font-size": "60px",
-  "font-family": "Georgia"
+  "fontSize": "60px",
+  "fontFamily": "Georgia"
 };
 
 // class Header extends Component {

@@ -1,8 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Header = ({onMouseOverTopics}) => {
-  
+const Header = ({onMouseOverTopics, onMouseOverRepositories}) => {
   const listStyle = { color: "aqua" };
   const logoStyle = {
     "fontSize": "60px",
@@ -26,7 +25,10 @@ const Header = ({onMouseOverTopics}) => {
             <NavLink onMouseOver={onMouseOverTopics} to="/topics" className="nav-bar__link" activeClassName="nav-bar__link--selected">Topics</NavLink>
           </li>
           <li style={listStyle}>
-            <NavLink onMouseOver={onMouseOverTopics} to="/repositories" className="nav-bar__link" activeClassName="nav-bar__link--selected">Github</NavLink>
+            <NavLink onMouseOver={onMouseOverRepositories} to="/repositories" className="nav-bar__link" activeClassName="nav-bar__link--selected">Github</NavLink>
+          </li>
+          <li style={listStyle}>
+            <NavLink to="/gravatar" className="nav-bar__link" activeClassName="nav-bar__link--selected">Gravatar</NavLink>
           </li>
         </ul>
       </header>

@@ -5,6 +5,7 @@ import "./App.css";
 import Header from "./components/Header.jsx";
 import Home from "./views/Home.jsx";
 import About from "./views/About.jsx";
+import Gravatar from "./views/Gravatar.jsx";
 import NoMatch from "./views/NoMatch.jsx";
 
 const LoadableTopics = Loadable({
@@ -21,11 +22,15 @@ const onMouseOverTopics = () => {
   LoadableTopics.preload();
 }
 
+const onMouseOverRepositories = () => {
+  LoadableRepositories.preload();
+}
+
 // class App extends Component {
 const App = () => (
   <Router>
     <div className="App">
-      <Header onMouseOverTopics={onMouseOverTopics}  />
+      <Header onMouseOverTopics={onMouseOverTopics} onMouseOverRepositories={onMouseOverRepositories} />
 
       {/* Decide page to show */}
       <Switch>
@@ -33,6 +38,7 @@ const App = () => (
         <Route path="/about" component={About} />
         <Route path="/topics" component={LoadableTopics} />
         <Route path="/repositories" component={LoadableRepositories} />
+        <Route path="/gravatar" component={Gravatar} />
         <Route component={NoMatch} />
       </Switch>
     </div>

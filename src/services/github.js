@@ -1,5 +1,6 @@
 const fetchRepositories = async () => {
   const response = await fetch('https://api.github.com/users/jangalante/repos')
+  console.log(response);
   const json = await response.json();
   
   return {

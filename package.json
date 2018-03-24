@@ -9,6 +9,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build",
     "eject": "react-scripts eject"
   },
   "dependencies": {
@@ -19,6 +21,7 @@
     "react-dom": "^16.2.0",
     "react-loadable": "^5.3.1",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "react-styleguidist": "^6.5.2"
   }
 }

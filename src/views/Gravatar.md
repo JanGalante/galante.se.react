@@ -1,0 +1,5 @@
+Gravatar example:
+
+```js
+<Gravatar />
+```

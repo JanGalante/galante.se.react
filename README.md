@@ -16,3 +16,6 @@ We are going to be using the npm-run-all npm module to run our frontend and back
 
 netlify.toml
 This is needed to configure the function settings. For more info: https://github.com/netlify/netlify-lambda#installation
+
+create-react-app-lambda
+https://github.com/netlify/create-react-app-lambda

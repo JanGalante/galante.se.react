@@ -41,7 +41,7 @@ const App = () => (
         <Route path="/repositories" component={LoadableRepositories} />
         <Route path="/gravatar" component={Gravatar} />
         <Route path="/lambda" component={Lambda} />
-        <Route component={NoMatch} />
+        {/* <Route component={NoMatch} /> */}
       </Switch>
     </div>
   </Router>

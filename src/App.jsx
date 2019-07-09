@@ -7,6 +7,7 @@ import Home from "./views/Home.jsx";
 import About from "./views/About.jsx";
 import Gravatar from "./views/Gravatar.jsx";
 import NoMatch from "./views/NoMatch.jsx";
+import Lambda from './views/Lambda.jsx';
 
 const LoadableTopics = Loadable({
   loader: () => import('./views/Topics.jsx'),
@@ -39,6 +40,7 @@ const App = () => (
         <Route path="/topics" component={LoadableTopics} />
         <Route path="/repositories" component={LoadableRepositories} />
         <Route path="/gravatar" component={Gravatar} />
+        <Route path="/lambda" component={Lambda} />
         <Route component={NoMatch} />
       </Switch>
     </div>

@@ -1,4 +1,4 @@
 [build]
   command = "yarn build"
-  functions = "functions" #  netlify-lambda reads this
+  functions = "built-functions" #  netlify-lambda reads this
   publish = "build"

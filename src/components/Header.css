@@ -1,0 +1,35 @@
+.nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+.nav-bar li {
+  float: left;
+}
+
+.nav-bar__link {
+  display: block;
+  color: var(--blue);
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* .nav-bar li a:hover { */
+.nav-bar__link:hover {
+  background-color: #111111;
+  color: white;
+  text-decoration: none;
+
+}
+
+
+.nav-bar__link--selected
+{
+  background-color: #111111;
+  color: var(--menta) !important;
+  text-decoration: none !important;
+}

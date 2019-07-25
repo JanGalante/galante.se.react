@@ -8,6 +8,7 @@ import About from "./views/About.jsx";
 import Gravatar from "./views/Gravatar.jsx";
 import NoMatch from "./views/NoMatch.jsx";
 import Lambda from './views/Lambda.jsx';
+import LazyLoadImage from './views/LazyLoadImage';
 
 const LoadableTopics = Loadable({
   loader: () => import('./views/Topics.jsx'),
@@ -41,6 +42,7 @@ const App = () => (
         <Route path="/repositories" component={LoadableRepositories} />
         <Route path="/gravatar" component={Gravatar} />
         <Route path="/lambda" component={Lambda} />
+        <Route path="/lazy-load-image" component={LazyLoadImage} />
         {/* <Route component={NoMatch} /> */}
       </Switch>
     </div>

@@ -74,3 +74,17 @@
   text-decoration: none !important;
 }
 
+
+
+picture {
+  width: 100%; /* stretch to fit its containing element */
+  overflow: hidden;
+}
+
+picture img {
+  width: 100%; /* stretch to fill the picture element */
+}
+
+picture.lazy img {
+  filter: blur(20px);
+}

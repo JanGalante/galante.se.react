@@ -33,6 +33,9 @@ const Header = ({onMouseOverTopics, onMouseOverRepositories}) => {
           <li style={listStyle}>
             <NavLink to="/lambda" className="nav-bar__link" activeClassName="nav-bar__link--selected">Lambda</NavLink>
           </li>
+          <li style={listStyle}>
+            <NavLink to="/lazy-load-image" className="nav-bar__link" activeClassName="nav-bar__link--selected">Lazy load image</NavLink>
+          </li>
         </ul>
       </header>
     </div>

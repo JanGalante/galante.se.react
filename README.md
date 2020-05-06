@@ -10,7 +10,7 @@
 FaunaDB
 https://www.netlify.com/blog/2018/07/09/building-serverless-crud-apps-with-netlify-functions--faunadb/#background
 
-fnADSKeMtJACARQctR3YlEbKWvUQ8Fwl4BE6IHwU
+Fuauna server key: fnADSKeMtJACARQctR3YlEbKWvUQ8Fwl4BE6IHwU
 
 netlify-lambda
 Netlify lambda is a tool for locally emulating the serverless function for development and for bundling our serverless function with third party npm modules (if we are using those

@@ -16,29 +16,31 @@ const Header = ({onMouseOverTopics, onMouseOverRepositories}) => {
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <div style={logoStyle}>J|G</div>
         <h1 className="App-title">Welcome to Galante</h1>
-        <ul className="nav-bar">
-          <li style={listStyle}>
-            <NavLink exact to="/" className="nav-bar__link" activeClassName="nav-bar__link--selected">Home</NavLink>
-          </li>
-          <li style={listStyle}>
-            <NavLink to="/about" className="nav-bar__link" activeClassName="nav-bar__link--selected">About</NavLink>
-          </li>
-          <li style={listStyle}>
-            <NavLink onMouseOver={onMouseOverTopics} to="/topics" className="nav-bar__link" activeClassName="nav-bar__link--selected">Topics</NavLink>
-          </li>
-          <li style={listStyle}>
-            <NavLink onMouseOver={onMouseOverRepositories} to="/repositories" className="nav-bar__link" activeClassName="nav-bar__link--selected">Github</NavLink>
-          </li>
-          <li style={listStyle}>
-            <NavLink to="/gravatar" className="nav-bar__link" activeClassName="nav-bar__link--selected">Gravatar</NavLink>
-          </li>
-          <li style={listStyle}>
-            <NavLink to="/lambda" className="nav-bar__link" activeClassName="nav-bar__link--selected">Lambda</NavLink>
-          </li>
-          <li style={listStyle}>
-            <NavLink to="/lazy-load-image" className="nav-bar__link" activeClassName="nav-bar__link--selected">Lazy load image</NavLink>
-          </li>
-        </ul>
+        <nav>
+          <ul className="nav-bar">
+            <li style={listStyle}>
+              <NavLink exact to="/" className="nav-bar__link" activeClassName="nav-bar__link--selected">Home</NavLink>
+            </li>
+            <li style={listStyle}>
+              <NavLink to="/about" className="nav-bar__link" activeClassName="nav-bar__link--selected">About</NavLink>
+            </li>
+            <li style={listStyle}>
+              <NavLink onMouseOver={onMouseOverTopics} to="/topics" className="nav-bar__link" activeClassName="nav-bar__link--selected">Topics</NavLink>
+            </li>
+            <li style={listStyle}>
+              <NavLink onMouseOver={onMouseOverRepositories} to="/repositories" className="nav-bar__link" activeClassName="nav-bar__link--selected">Github</NavLink>
+            </li>
+            <li style={listStyle}>
+              <NavLink to="/gravatar" className="nav-bar__link" activeClassName="nav-bar__link--selected">Gravatar</NavLink>
+            </li>
+            <li style={listStyle}>
+              <NavLink to="/lambda" className="nav-bar__link" activeClassName="nav-bar__link--selected">Lambda</NavLink>
+            </li>
+            <li style={listStyle}>
+              <NavLink to="/lazy-load-image" className="nav-bar__link" activeClassName="nav-bar__link--selected">Lazy load image</NavLink>
+            </li>
+          </ul>
+        </nav>
       </header>
     </div>
   );

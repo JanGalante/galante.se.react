@@ -1,10 +1,10 @@
-header > ul.nav-bar {
+header > nav > ul.nav-bar {
   display: flex;
-  margin: 50px;
+  /* margin: 50px; */
 }
 
 
-@media all and (max-width: 600px) {  
+@media all and (max-width: 800px) {  
 
   header ul {  
     flex-wrap: wrap;  
@@ -46,7 +46,7 @@ header > ul.nav-bar > li:nth-child(7) {
   display: block;
   color: var(--blue);
   text-align: center;
-  padding: 16px;
+  /* padding: 16px; */
   text-decoration: none;
 }
 

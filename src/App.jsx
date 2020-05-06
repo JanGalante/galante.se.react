@@ -28,7 +28,6 @@ const onMouseOverRepositories = () => {
   LoadableRepositories.preload();
 }
 
-// class App extends Component {
 const App = () => (
   <Router>
     <div className="App">
@@ -43,7 +42,7 @@ const App = () => (
         <Route path="/gravatar" component={Gravatar} />
         <Route path="/lambda" component={Lambda} />
         <Route path="/lazy-load-image" component={LazyLoadImage} />
-        {/* <Route component={NoMatch} /> */}
+        <Route component={NoMatch} />
       </Switch>
     </div>
   </Router>

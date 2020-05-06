@@ -11,6 +11,6 @@ import { enableLazyLoadPictures } from './lazy-load-pictures';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
-//since we onlu run in browser (not server rendered) we can use browser specific code
+//since we only run in browser (not server rendered) we can use browser specific code
 registerServiceWorker();
 enableLazyLoadPictures();

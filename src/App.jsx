@@ -9,6 +9,8 @@ import Gravatar from "./views/Gravatar.jsx";
 import NoMatch from "./views/NoMatch.jsx";
 import Lambda from './views/Lambda.jsx';
 import LazyLoadImage from './views/LazyLoadImage';
+import GridLayout from './views/GridLayout'
+
 
 const LoadableTopics = Loadable({
   loader: () => import('./views/Topics.jsx'),
@@ -30,7 +32,7 @@ const onMouseOverRepositories = () => {
 
 const App = () => (
   <Router>
-    <div className="App">
+    {/* <div className="App"> */}
       <Header onMouseOverTopics={onMouseOverTopics} onMouseOverRepositories={onMouseOverRepositories} />
 
       {/* Decide page to show */}
@@ -42,9 +44,10 @@ const App = () => (
         <Route path="/gravatar" component={Gravatar} />
         <Route path="/lambda" component={Lambda} />
         <Route path="/lazy-load-image" component={LazyLoadImage} />
+        <Route path="/grid-layout" component={GridLayout} />
         <Route component={NoMatch} />
       </Switch>
-    </div>
+    {/* </div> */}
   </Router>
 );
 

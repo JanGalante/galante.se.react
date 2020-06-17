@@ -1,0 +1,34 @@
+:root {
+  --green: #79C753;
+  --red: #FF4136;
+  --yellow: #F6D155;
+  --gray: #AAA;
+  --black: #222;
+  --silver: #DDD;
+  --blue: #1b98ba;
+  --menta: #9acbc3;
+}
+
+.link {
+  display: block;
+  color: var(--blue);
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* .nav-bar li a:hover { */
+.link:hover {
+  background-color: #111111;
+  color: white;
+  text-decoration: none;
+
+}
+
+
+.selected
+{
+  background-color: #111111;
+  color: var(--menta) !important;
+  text-decoration: none !important;
+}

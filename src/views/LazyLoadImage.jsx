@@ -1,4 +1,5 @@
 import React from "react";
+import styles from './LazyLoadImage.module.css';
 
 
 
@@ -17,7 +18,7 @@ const LazyLoadImage = () => {
         <source srcset="https://lazy-load-demo.netlify.com/images/medium/lighthouse-5.jpg" media="(min-width: 700px)" />
         <img src="https://lazy-load-nlm.netlify.com/images/lighthouse-5.jpg?nf_resize=fit&w=20" alt="snazzy lighthouse" />
       </picture> */}
-      <picture className="lazy">
+      <picture className={styles.picture}>
         <source 
           srcSet="https://lazy-load-nlm.netlify.com/images/lighthouse-5.jpg?nf_resize=fit&w=20" 
           data-src="https://lazy-load-demo.netlify.com/images/large/lighthouse-5.jpg" 

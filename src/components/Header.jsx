@@ -33,15 +33,15 @@ const Header = ({onMouseOverTopics, onMouseOverRepositories}) => {
   );
 
   return (
-      <header className="App-header" style={headerStyle}>
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+      <header style={headerStyle}>
+        {/* <img src={logo} className={styles.logo} alt="logo" /> */}
         <div style={logoStyle}>J|G</div>
-        <h1 className="App-title">Welcome to Galante</h1>
+        <h1 className={styles.title}>Welcome to Galante</h1>
         <ul className="nav-bar" style={navbarStyle}>
           <NavItem text="Home" to="/" />
           <NavItem text="About" to="/about" />
           <NavItem text="Topics" to="/topics" />
-          <NavItem text="Github" to="/repositories" />
+          <NavItem text="Github - with react-query" to="/repositories" />
           <NavItem text="Gravatar" to="/gravatar" />
           <NavItem text="Lambda" to="/lambda" />
           <NavItem text="Lazy load image" to="/lazy-load-image" />

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import service from '../services/github'
 
-// TODO: Gör om till hooks och använd react-query för att hämta data och cacha
+// TODO: Gör om till hooks och använd react-query för att hämta data och cache
 
 export default class Repositories extends Component {
   constructor(props) {

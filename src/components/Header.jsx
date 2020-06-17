@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from './Header.module.css'; // Import css modules stylesheet as styles
-import { text } from "body-parser";
 
 const Header = ({onMouseOverTopics, onMouseOverRepositories}) => {
   const listStyle = { 
@@ -24,19 +23,16 @@ const Header = ({onMouseOverTopics, onMouseOverRepositories}) => {
     display: 'flex',
     'align-items': 'center',
     'justify-content': 'center',
-    // 'background-color': 'aqua',
     'background-color': '#333333',
   }
 
   const NavItem = ({text, to}) => (
     <li style={listStyle}>
-      {/* <NavLink exact to={to} className="nav-bar__link" activeClassName="nav-bar__link--selected">{text}</NavLink> */}
       <NavLink exact to={to} className={styles.link} activeClassName={styles.selected}>{text}</NavLink>
     </li>
   );
 
   return (
-    <div>
       <header className="App-header" style={headerStyle}>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <div style={logoStyle}>J|G</div>
@@ -52,7 +48,6 @@ const Header = ({onMouseOverTopics, onMouseOverRepositories}) => {
           <NavItem text="Grid layout" to="/grid-layout" />
         </ul>
       </header>
-    </div>
   );
 };
 

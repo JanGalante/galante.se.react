@@ -1,26 +1,34 @@
-:root {
-  --green: #79C753;
-  --red: #FF4136;
-  --yellow: #F6D155;
-  --gray: #AAA;
-  --black: #222;
-  --silver: #DDD;
-  --blue: #1b98ba;
-  --menta: #9acbc3;
+.layout {
+  display: grid;
+  grid-template-columns: 25px auto 25px;
+  grid-template-rows: 110px 75px 62px;
+  background-color: #222;
+  color: white;
 }
 
 .logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 103px;
+  font-family: Georgia;
+  text-align: center;
 }
 
-/* @keyframes logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-} */
-
 .title {
-  font-size: 1.5em;
+  grid-column: 2;
+  grid-row: 2;
+  font-size: 18px;
+  text-align: center;
+}
+
+.navbar {
+  grid-column: 2;
+  grid-row: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333333;  
 }
 
 
@@ -32,7 +40,6 @@
   text-decoration: none;
 }
 
-/* .nav-bar li a:hover { */
 .link:hover {
   background-color: #111111;
   color: white;
@@ -42,7 +49,7 @@
 
 .selected
 {
-  background-color: #111111;
+  background-color: #222;
   color: var(--menta) !important;
   text-decoration: none !important;
 }

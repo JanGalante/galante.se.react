@@ -7,24 +7,6 @@ const Header = ({onMouseOverTopics, onMouseOverRepositories}) => {
     color: "aqua",
     'list-style-type': 'none',
   };
-  const logoStyle = {
-    "fontSize": "60px",
-    "fontFamily": "Georgia"
-  };
-
-  const headerStyle = {
-    'background-color': '#222',
-    // height: 150px;
-    padding: '20px',
-    color: 'white',
-  }
-
-  const navbarStyle = {
-    display: 'flex',
-    'align-items': 'center',
-    'justify-content': 'center',
-    'background-color': '#333333',
-  }
 
   const NavItem = ({text, to}) => (
     <li style={listStyle}>
@@ -33,11 +15,10 @@ const Header = ({onMouseOverTopics, onMouseOverRepositories}) => {
   );
 
   return (
-      <header style={headerStyle}>
-        {/* <img src={logo} className={styles.logo} alt="logo" /> */}
-        <div style={logoStyle}>J|G</div>
+      <header className={styles.layout}>
+        <div className={styles.logo}>J|G</div>
         <h1 className={styles.title}>Welcome to Galante</h1>
-        <ul className="nav-bar" style={navbarStyle}>
+        <ul className={styles.navbar}>
           <NavItem text="Home" to="/" />
           <NavItem text="About" to="/about" />
           <NavItem text="Topics" to="/topics" />

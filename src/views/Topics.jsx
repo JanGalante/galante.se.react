@@ -6,9 +6,7 @@ const Topics = () => {
   // };
 
   return (
-    <div>
-      <p className="App-intro">Not so many topics as expected</p>
-    </div>
+    <p>Not so many topics as expected</p>
   );
 };
 

@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Loadable from 'react-loadable';
-import "./App.css";
 import Header from "./components/Header.jsx";
 import Home from "./views/Home.jsx";
 import About from "./views/About.jsx";
@@ -10,6 +9,8 @@ import NoMatch from "./views/NoMatch.jsx";
 import Lambda from './views/Lambda.jsx';
 import LazyLoadImage from './views/LazyLoadImage';
 import GridLayout from './views/GridLayout'
+
+import styles from './App.module.css';
 
 
 const LoadableTopics = Loadable({
@@ -34,6 +35,7 @@ const App = () => (
   <Router>
     <Header onMouseOverTopics={onMouseOverTopics} onMouseOverRepositories={onMouseOverRepositories} />
 
+    <div className={styles.layout}>
     {/* Decide page to show */}
     <Switch>
       <Route exact path="/" component={Home} />
@@ -46,6 +48,7 @@ const App = () => (
       <Route path="/grid-layout" component={GridLayout} />
       <Route component={NoMatch} />
     </Switch>
+    </div>
   </Router>
 );
 

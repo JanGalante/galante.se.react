@@ -31,15 +31,15 @@ const Repositories = () => {
   }
 
   return (
-    <div>
+    <>
       <h1>Mina respositories på Github</h1>
-      <p className="App-intro">Not so many topics as expected</p>
+      <p>Not so many topics as expected</p>
       <ul>
         {items.map(item => (
           <li key={item.id}>{item.name}</li>
         ))}
       </ul>
-    </div>
+    </>
   )
 }
 

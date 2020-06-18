@@ -9,6 +9,8 @@
   --menta: #9acbc3;
 }
 
-.App-intro {
+.layout {
+  margin: 25px;
   font-size: large;
+  /* background-color: aquamarine; */
 }

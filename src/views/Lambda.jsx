@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { stringify } from 'querystring';
 
 const Lambda = () => {
 // Handle sanity result
@@ -20,7 +19,7 @@ useEffect(() => {
 
 
   return (
-    <div>
+    <>
       <h1>Using lambda serverless function</h1>
       <p>
         ...here goes the result from a lambda function.
@@ -28,7 +27,7 @@ useEffect(() => {
       <p>
         result: {result}
       </p>
-    </div>
+    </>
   )
 }
 

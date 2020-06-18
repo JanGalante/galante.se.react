@@ -15,12 +15,12 @@ export default class Gravatar extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <h1>Gravatars</h1>
         <p>
         <img src={ `https://www.gravatar.com/avatar/${md5('ave_caesar@hotmail.com')}?s=50` } /> ave_caesar@hotmail.com
         </p>
-      </div>
+      </>
     )
   }
 }

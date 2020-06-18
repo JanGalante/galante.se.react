@@ -13,7 +13,7 @@ function loadImage(picture) {
 
   var sources = picture.children;
   var loadingPath = "images/tiny";
-  var sizes = ["large","medium","small"];
+  // var sizes = ["large","medium","small"];
 
   for(var s=0; s<sources.length; s++) {
     const srcPath = sources[s].dataset.src

@@ -18,7 +18,7 @@ export default class Gravatar extends Component {
       <>
         <h1>Gravatars</h1>
         <p>
-        <img src={ `https://www.gravatar.com/avatar/${md5('ave_caesar@hotmail.com')}?s=50` } /> ave_caesar@hotmail.com
+        <img src={ `https://www.gravatar.com/avatar/${md5('ave_caesar@hotmail.com')}?s=50` } alt="avatar" /> ave_caesar@hotmail.com
         </p>
       </>
     )

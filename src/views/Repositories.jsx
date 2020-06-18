@@ -23,11 +23,11 @@ const Repositories = () => {
   }, [])
 
   if (!isLoaded) {
-    return (<h1>loading...</h1>)
+    return <h1>loading...</h1>
   }
 
   if (error) {
-    return (<p>Something went wrong when trying to get repositories from Github</p>)
+    return <h3>Something went wrong when trying to get repositories from Github</h3>
   }
 
   return (

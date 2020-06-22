@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { ReactQueryDevtools } from 'react-query-devtools'
 import Loadable from 'react-loadable';
 import Header from "./components/Header.jsx";
 import Home from "./views/Home.jsx";
@@ -49,6 +50,7 @@ const App = () => (
       <Route component={NoMatch} />
     </Switch>
     </div>
+    <ReactQueryDevtools initialIsOpen={false} />
   </Router>
 );
 

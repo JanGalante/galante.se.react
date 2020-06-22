@@ -23,3 +23,8 @@ This is needed to configure the function settings. For more info: https://github
 
 create-react-app-lambda
 https://github.com/netlify/create-react-app-lambda
+
+
+# More on lambda functions
+- https://www.npmjs.com/package/netlify-lambda
+- https://kentcdodds.com/blog/super-simple-start-to-serverless

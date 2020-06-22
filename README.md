@@ -28,3 +28,8 @@ https://github.com/netlify/create-react-app-lambda
 # More on lambda functions
 - https://www.npmjs.com/package/netlify-lambda
 - https://kentcdodds.com/blog/super-simple-start-to-serverless
+
+
+# Problemshoting
+## Site is not updating after deploy
+The site uses service workers so remember to clear application data i devtools

@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import service from '../services/github'
+import Commits from '../components/git-info/commits';
 
 // // TODO: Gör om till hooks och använd react-query för att hämta data och cache
 
 const Repositories = () => {
   const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [repos, setRepo] = useState([]);
+  const [selectedRepo, setSelectedRepo] = useState(undefined);
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
+
       const { repositories, success } = await service.fetchRepositories();
-      setIsLoaded(true);
-      setItems(repositories);
+      setIsLoading(false);
+      setRepo(repositories);
 
       if (!success) {
         setError('Something went wron');
@@ -22,7 +26,13 @@ const Repositories = () => {
     fetchData();
   }, [])
 
-  if (!isLoaded) {
+  const handleRepoClick = (e, id, name) => {
+    e.preventDefault();
+    console.log(`The link was clicked... ${id}`);
+    setSelectedRepo(name);
+  }
+
+  if (isLoading) {
     return <h1>loading...</h1>
   }
 
@@ -33,12 +43,13 @@ const Repositories = () => {
   return (
     <>
       <h1>Mina respositories på Github</h1>
-      <p>Not so many topics as expected</p>
+      <div>Active repository: </div>
       <ul>
-        {items.map(item => (
-          <li key={item.id}>{item.name}</li>
+        {repos.map(repo => (
+          <li key={repo.id} onClick={(e) => handleRepoClick(e, repo.id, repo.name)}>{repo.name}</li>
         ))}
       </ul>
+      <Commits repo={selectedRepo} />
     </>
   )
 }

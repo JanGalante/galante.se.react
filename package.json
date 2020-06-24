@@ -25,6 +25,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@material-ui/core": "^4.10.2",
     "applicationinsights": "^1.8.0",
     "bootstrap": "^3.3.7",
     "faunadb": "^2.14.2",

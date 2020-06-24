@@ -1,6 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ReactQueryDevtools } from 'react-query-devtools'
+
+import { ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
+import * as colors from '@material-ui/core/colors';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { red } from '@material-ui/core/colors';
+
 import Loadable from 'react-loadable';
 import Header from "./components/Header.jsx";
 import Home from "./views/Home.jsx";
@@ -32,6 +39,43 @@ const onMouseOverRepositories = () => {
   LoadableRepositories.preload();
 }
 
+// const theme = {};
+// const theme = createMuiTheme({
+//   palette: {
+//     primary: colors.lightBlue,
+//     secondary: colors.blue,
+//     error: colors.pink,
+//     type: 'dark',
+//   },
+// });
+// A custom theme for this app
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#90caf9',
+    },
+    secondary: {
+      main: '#f48fb1',
+    },
+    error: {
+      main: '#f44336',
+    },
+    warning: {
+      main: '#ff9800',
+    },
+    info: {
+      main: '#2196f3',
+    },
+    success: {
+      main: '#4caf50'
+    },
+    // background: {
+    //   default: '#222',
+    // },
+    type: 'dark',
+  },
+});
+
 const App = () => (
   <Router>
     <Header onMouseOverTopics={onMouseOverTopics} onMouseOverRepositories={onMouseOverRepositories} />
@@ -42,7 +86,11 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/topics" component={LoadableTopics} />
-      <Route path="/repositories" component={LoadableRepositories} />
+      <ThemeProvider theme={theme}>
+      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+      <CssBaseline />
+        <Route path="/repositories" component={LoadableRepositories} />
+      </ThemeProvider>
       <Route path="/gravatar" component={Gravatar} />
       <Route path="/lambda" component={Lambda} />
       <Route path="/lazy-load-image" component={LazyLoadImage} />

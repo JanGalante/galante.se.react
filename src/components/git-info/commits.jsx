@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery } from 'react-query';
+import { Button, List, ListItem, ListItemText, CircularProgress } from '@material-ui/core';
 
 
 const settings = {
@@ -50,7 +51,7 @@ const Commits = ({ repo }) => {
   const { status, data, error, isFetching } = useQuery(queryKey, fetchCommits, settings);
 
   if (status === "loading") {
-    return <span>Loading...</span>;
+    return <CircularProgress />
   }
 
   if (status === "error") {
@@ -58,17 +59,25 @@ const Commits = ({ repo }) => {
   }
 
   if (!repo) {
-    return <span>Slelect repository to see commits here...</span>;
+    return (
+      <>
+        <span>Slelect repository to see commits here...</span>
+        <Button variant="contained" color="primary">Hello World</Button>
+        <Button variant="contained" color="secondary">Hello World</Button>
+      </>
+    );
   }
 
   return (
     <>
-      <h2>Current commits</h2>
-      <ul>
+      <h3>Current commits</h3>
+      <List>
         {data.map((commit) => (
-          <li key={commit.sha}>{commit.date} - {commit.message}</li>
+          <ListItem key={repo.sha}>
+            <ListItemText primary={commit.message} secondary={commit.date} />
+          </ListItem>
         ))}
-      </ul>
+      </List>
       <div>{isFetching ? "Background Updating..." : " "}</div>
     </>
   );

@@ -4,9 +4,7 @@ import { ReactQueryDevtools } from 'react-query-devtools'
 
 import { ThemeProvider } from '@material-ui/core/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
-import * as colors from '@material-ui/core/colors';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { red } from '@material-ui/core/colors';
 
 import Loadable from 'react-loadable';
 import Header from "./components/Header.jsx";

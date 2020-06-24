@@ -1,17 +1,8 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import { Button, List, ListItem, ListItemText, CircularProgress } from '@material-ui/core';
+import { format } from 'date-fns'
 
-
-const settings = {
-  retry: 0, // 3
-  // retryDelay
-  // cacheTime:  1000 * 60 * 5, // milliseconds
-  // staleTime: 0 // milliseconds.
-  staleTime: Infinity, // milliseconds.
-  refetchInterval: false,
-  refetchOnWindowFocus: false,
-}
 
 // Anywhere the [queryKey, variables, queryFn, config] options are supported throughout React Query's API
 // you can also use an object to express the same configuration:
@@ -41,14 +32,15 @@ const Commits = ({ repo }) => {
       return { 
         sha: item.sha,
         message: item.commit?.message,
-        date: item.commit?.committer?.date,
+        date: Date.parse(item.commit?.committer?.date),
       }
     })
     return data;
   }; 
 
-  const queryKey = repo && ["commits", repo]; // pass a falsy value as the query key if query isn't ready to be requested 
-  const { status, data, error, isFetching } = useQuery(queryKey, fetchCommits, settings);
+  const { status, data, error, isFetching } = useQuery(["commits", repo], fetchCommits, {
+    enabled: repo, // 'repo' would be falsy at first, so the query will not execute until the repo exists
+  });
 
   if (status === "loading") {
     return <CircularProgress />
@@ -74,7 +66,7 @@ const Commits = ({ repo }) => {
       <List>
         {data.map((commit) => (
           <ListItem key={repo.sha}>
-            <ListItemText primary={commit.message} secondary={commit.date} />
+            <ListItemText primary={commit.message} secondary={format(commit.date, 'yyyy-MM-dd HH:mm')} />
           </ListItem>
         ))}
       </List>

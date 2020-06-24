@@ -1,37 +1,11 @@
 import React, { useState, useEffect } from 'react'
-
-import { useTheme } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-// import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Box from '@material-ui/core/Box';
-import { makeStyles } from '@material-ui/core/styles';
+import { List, ListItem, ListItemText, CircularProgress } from '@material-ui/core';
 
 import service from '../services/github'
 import Commits from '../components/git-info/commits';
 
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     display: 'flex',
-//     // flexWrap: 'wrap',
-//     flexFlow: 'column wrap',
-//     '& > *': {
-//       margin: theme.spacing(1),
-//       width: theme.spacing(16),
-//       height: theme.spacing(16),
-//     },
-//   },
-// }));
-
-
-function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
-}
-
 
 // // TODO: Gör om till hooks och använd react-query för att hämta data och cache
-
 export default function Repositories() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -74,7 +48,7 @@ export default function Repositories() {
   };
 
   if (isLoading) {
-    return <h1>loading...</h1>;
+    return <CircularProgress />
   }
 
   if (error) {
@@ -95,14 +69,11 @@ export default function Repositories() {
                 key={repo.id}
                 button
                 dense={false}
-                // disablePadding={true}
                 onClick={(e) => handleRepoClick(e, repo.id, repo.name)}
                 selected={repo.name === selectedRepo}
                 component="div"
               >
-                {/* <ListItemLink href={'#' + repo.name} divider > */}
-                  <ListItemText primary={repo.name} />
-                {/* </ListItemLink> */}
+                <ListItemText primary={repo.name} />
               </ListItem>
             ))}
           </List>

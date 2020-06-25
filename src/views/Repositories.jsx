@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { List, ListItem, ListItemText, CircularProgress } from '@material-ui/core';
 
-import service from '../services/github'
+// import service from '../services/github'
 import Commits from '../components/git-info/commits';
 
 
@@ -29,7 +29,9 @@ export default function Repositories() {
     const fetchData = async () => {
       setIsLoading(true);
 
-      const { repositories, success } = await service.fetchRepositories();
+      // const { repositories, success } = await service.fetchRepositories();
+      const { repositories, success } = await fetch('./.netlify/functions/github-repos');
+
       setIsLoading(false);
       setRepo(repositories);
 

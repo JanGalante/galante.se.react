@@ -28,6 +28,10 @@ https://github.com/netlify/create-react-app-lambda
 # More on lambda functions
 - https://www.npmjs.com/package/netlify-lambda
 - https://kentcdodds.com/blog/super-simple-start-to-serverless
+- https://www.netlify.com/blog/2018/07/09/building-serverless-crud-apps-with-netlify-functions-faunadb/
+- https://functions-playground.netlify.app/
+- https://functions.netlify.com/examples/
+- https://docs.netlify.com/functions/build-with-javascript/#format
 
 
 # Problemshoting

@@ -29,8 +29,11 @@ export default function Repositories() {
     const fetchData = async () => {
       setIsLoading(true);
 
+      // TODO: Eventuellt lägga allt in en tjänst som anropas med ett rad och får korrekt format tillbaka
       // const { repositories, success } = await service.fetchRepositories();
-      const { repositories, success } = await fetch('./.netlify/functions/github-repos');
+      const response = await fetch('./.netlify/functions/github-repos');
+      const { repositories, success } = await response.json();
+      console.log({ repositories, success })
 
       setIsLoading(false);
       setRepo(repositories);

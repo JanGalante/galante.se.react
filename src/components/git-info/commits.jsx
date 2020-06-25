@@ -16,26 +16,9 @@ import { format } from 'date-fns'
 
 const Commits = ({ repo }) => {
   const fetchCommits = async () => {
-    const response = await fetch(`https://api.github.com/repos/jangalante/${repo}/commits`,
-    {
-      headers: {
-        // TODO:place token in environment variable, not in code
-        authorization: 'token e923a79b9ed23f1ddfc68281bc52d9e086f3c11c'
-      },
-    });
-  
-    const json = await response.json();
-    console.log({repo, json});
-  
-    // map data
-    const data = json.map((item) => {
-      return { 
-        sha: item.sha,
-        message: item.commit?.message,
-        date: Date.parse(item.commit?.committer?.date),
-      }
-    })
-    return data;
+    const response = await fetch(`./.netlify/functions/github-commits?repo=${repo}`); 
+    const commits = await response.json();
+    return commits;
   }; 
 
   const { status, data, error, isFetching } = useQuery(["commits", repo], fetchCommits, {

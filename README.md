@@ -37,3 +37,31 @@ https://github.com/netlify/create-react-app-lambda
 # Problemshoting
 ## Site is not updating after deploy
 The site uses service workers so remember to clear application data i devtools
+
+## TODO:
+- [x] Migrate to React hooks
+- [x] Use CSS modules
+- [ ] Use Facebook/Instagram loader
+- [x] Use serverless functions via lambda functions in Netlify
+- [ ] Migrate from Bootstra to Material UI
+- [ ] Use nice ticker for numbers
+- [x] Use React query
+- [ ] Use React error boundery, [react doc](https://reactjs.org/docs/error-boundaries.html) and [github doc](https://github.com/bvaughn/react-error-boundary)
+- [ ] Use React Suspense and Concurrent mode for data fetching, [video](https://www.youtube.com/watch?v=xk_EWd11T94&feature=youtu.be&app=desktop), [https://github.com/kentcdodds/react-suspense],[epicreact.dev](https://epicreact.dev/)
+- [x] Fetch data with REST
+- [ ] Fetch data with GrapQL
+- [x] Place secrets in server variables
+- [ ] Store data in Fauna DB
+- [ ] Fetch data from Fauna DB with GraphQL
+- [ ] Use modern javascript
+  - [ ] Use Async, await
+  - [ ] Catching errors from an [await handler](https://www.npmjs.com/package/await-handler) without the need to wrap everything in try/catch blocks.
+  - [ ] Use [Nullish coalescing operator (??)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
+  - [ ] Use optional chaining (?.)
+  - [ ] Implement a [logging service](https://www.slant.co/topics/2615/~best-javascript-client-side-error-logging-services#1)
+  
+
+API:s to use as data sources
+- Github
+- Pokemon [api](https://graphql-pokemon.now.sh)
+- Starwars

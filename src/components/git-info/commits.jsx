@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import { Button, List, ListItem, ListItemText, CircularProgress } from '@material-ui/core';
+import { List, ListItem, ListItemText } from '@material-ui/core';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { format } from 'date-fns'
 
 
@@ -26,7 +27,21 @@ const Commits = ({ repo }) => {
   });
 
   if (status === "loading") {
-    return <CircularProgress />
+    return (
+      <SkeletonTheme color="#202020" highlightColor="#444">
+        <h3>Current commits</h3>
+          <List>
+            {Array(4).fill().map((item, index) => (
+              <ListItem key={index}>
+                <ListItemText 
+                  primary={<Skeleton width={400} />}x
+                  secondary={<Skeleton width={200} />}
+                />
+              </ListItem>
+            ))}
+          </List>
+      </SkeletonTheme>
+    );
   }
 
   if (status === "error") {
@@ -35,11 +50,7 @@ const Commits = ({ repo }) => {
 
   if (!repo) {
     return (
-      <>
-        <span>Slelect repository to see commits here...</span>
-        <Button variant="contained" color="primary">Hello World</Button>
-        <Button variant="contained" color="secondary">Hello World</Button>
-      </>
+      <h3>Current commits</h3>
     );
   }
 

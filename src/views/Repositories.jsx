@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { List, ListItem, ListItemText, CircularProgress } from '@material-ui/core';
+import { List, ListItem, ListItemText } from '@material-ui/core';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 // import service from '../services/github'
 import Commits from '../components/git-info/commits';
@@ -12,17 +13,14 @@ export default function Repositories() {
   const [repos, setRepo] = useState([]);
   const [selectedRepo, setSelectedRepo] = useState(undefined);
 
-  // const theme = useTheme();
-  // const classes = useStyles();
 
   const repoStyle = { 
     width: '30%',
-    display: 'flex',
+    // display: 'flex',
   };
 
   const layoutStyle = { 
     display: 'flex',
-    // width: '500px',
   };
 
   useEffect(() => {
@@ -53,7 +51,24 @@ export default function Repositories() {
   };
 
   if (isLoading) {
-    return <CircularProgress />
+    return (
+      <SkeletonTheme color="#202020" highlightColor="#444">
+        <div style={layoutStyle}>
+          <div style={repoStyle}>
+            <h3>Github respositories</h3>
+            <div>
+              <List>
+                {Array(3).fill().map((item, index) => (
+                    <ListItem button dense={false} key={index} component="div">
+                      <ListItemText primary={<Skeleton width={270} />} />
+                    </ListItem>
+                  ))}
+              </List>
+            </div>
+          </div>
+        </div>
+      </SkeletonTheme>
+    );
   }
 
   if (error) {
@@ -63,27 +78,26 @@ export default function Repositories() {
   }
 
   return (
-    // <div className={classes.root}>
     <>
-      <h1>Mina respositories på Github</h1>
       <div style={layoutStyle}>
         <div style={repoStyle}>
-          <List>
-            {repos.map((repo) => (
-              <ListItem 
-                key={repo.id}
-                button
-                dense={false}
-                onClick={(e) => handleRepoClick(e, repo.id, repo.name)}
-                selected={repo.name === selectedRepo}
-                component="div"
-              >
-                <ListItemText primary={repo.name} />
-              </ListItem>
-            ))}
-          </List>
-
-          
+          <h3>Github respositories</h3>
+          <div>
+            <List>
+              {repos.map((repo) => (
+                <ListItem
+                  key={repo.id}
+                  button
+                  dense={false}
+                  onClick={(e) => handleRepoClick(e, repo.id, repo.name)}
+                  selected={repo.name === selectedRepo}
+                  component="div"
+                >
+                  <ListItemText primary={repo.name} />
+                </ListItem>
+              ))}
+            </List>
+          </div>
         </div>
         <div>
           <Commits repo={selectedRepo} />

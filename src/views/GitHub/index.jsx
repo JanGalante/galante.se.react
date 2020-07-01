@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { List, ListItem, ListItemText } from '@material-ui/core';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+// import { List, ListItem, ListItemText } from '@material-ui/core';
+// import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 // import service from '../services/github'
-import Commits from '../components/git-info/commits';
+import Commits from './commits';
+import Repositories, { RepositoryLoader } from './repositories';
+
 
 
 // // TODO: Gör om till hooks och använd react-query för att hämta data och cache
-export default function Repositories() {
+export default function GitHub() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [repos, setRepo] = useState([]);
@@ -31,7 +33,6 @@ export default function Repositories() {
       // const { repositories, success } = await service.fetchRepositories();
       const response = await fetch('./.netlify/functions/github-repos');
       const { repositories, success } = await response.json();
-      console.log({ repositories, success })
 
       setIsLoading(false);
       setRepo(repositories);
@@ -46,29 +47,11 @@ export default function Repositories() {
 
   const handleRepoClick = (e, id, name) => {
     e.preventDefault();
-    console.log(`The link was clicked... ${id}`);
     setSelectedRepo(name);
   };
 
   if (isLoading) {
-    return (
-      <SkeletonTheme color="#202020" highlightColor="#444">
-        <div style={layoutStyle}>
-          <div style={repoStyle}>
-            <h3>Github respositories</h3>
-            <div>
-              <List>
-                {Array(3).fill().map((item, index) => (
-                    <ListItem button dense={false} key={index} component="div">
-                      <ListItemText primary={<Skeleton width={270} />} />
-                    </ListItem>
-                  ))}
-              </List>
-            </div>
-          </div>
-        </div>
-      </SkeletonTheme>
-    );
+    return <RepositoryLoader />
   }
 
   if (error) {
@@ -83,20 +66,7 @@ export default function Repositories() {
         <div style={repoStyle}>
           <h3>Github respositories</h3>
           <div>
-            <List>
-              {repos.map((repo) => (
-                <ListItem
-                  key={repo.id}
-                  button
-                  dense={false}
-                  onClick={(e) => handleRepoClick(e, repo.id, repo.name)}
-                  selected={repo.name === selectedRepo}
-                  component="div"
-                >
-                  <ListItemText primary={repo.name} />
-                </ListItem>
-              ))}
-            </List>
+            <Repositories repos={repos} selected={selectedRepo} handleClick={handleRepoClick} />
           </div>
         </div>
         <div>

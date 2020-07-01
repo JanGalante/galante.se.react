@@ -22,7 +22,7 @@ const Header = ({onMouseOverTopics, onMouseOverRepositories}) => {
           <NavItem text="Home" to="/" />
           <NavItem text="About" to="/about" />
           <NavItem text="Topics" to="/topics" />
-          <NavItem text="Github - with react-query" to="/repositories" />
+          <NavItem text="Github - with react-query" to="/github" />
           <NavItem text="Gravatar" to="/gravatar" />
           <NavItem text="Lambda" to="/lambda" />
           <NavItem text="Lazy load image" to="/lazy-load-image" />

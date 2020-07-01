@@ -23,8 +23,8 @@ const LoadableTopics = Loadable({
   loader: () => import('./views/Topics.jsx'),
   loading() { return <div>Loading...</div> }
 });
-const LoadableRepositories = Loadable({ 
-  loader: () => import('./views/Repositories.jsx'),
+const LoadableGitHub = Loadable({ 
+  loader: () => import('./views/GitHub/'),
   loading() { return <div>Loading...</div> }
  });
 
@@ -33,8 +33,8 @@ const onMouseOverTopics = () => {
   LoadableTopics.preload();
 }
 
-const onMouseOverRepositories = () => {
-  LoadableRepositories.preload();
+const onMouseOverGitHub = () => {
+  LoadableGitHub.preload();
 }
 
 // const theme = {};
@@ -76,7 +76,7 @@ const theme = createMuiTheme({
 
 const App = () => (
   <Router>
-    <Header onMouseOverTopics={onMouseOverTopics} onMouseOverRepositories={onMouseOverRepositories} />
+    <Header onMouseOverTopics={onMouseOverTopics} onMouseOverGitHub={onMouseOverGitHub} />
 
     <div className={styles.layout}>
     {/* Decide page to show */}
@@ -87,7 +87,7 @@ const App = () => (
       <ThemeProvider theme={theme}>
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
       <CssBaseline />
-        <Route path="/repositories" component={LoadableRepositories} />
+        <Route path="/github" component={LoadableGitHub} />
       </ThemeProvider>
       <Route path="/gravatar" component={Gravatar} />
       <Route path="/lambda" component={Lambda} />

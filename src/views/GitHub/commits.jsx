@@ -34,7 +34,7 @@ const Commits = ({ repo }) => {
             {Array(4).fill().map((item, index) => (
               <ListItem key={index}>
                 <ListItemText 
-                  primary={<Skeleton width={400} />}x
+                  primary={<Skeleton width={400} />}
                   secondary={<Skeleton width={200} />}
                 />
               </ListItem>
@@ -59,7 +59,7 @@ const Commits = ({ repo }) => {
       <h3>Current commits</h3>
       <List>
         {data.map((commit) => (
-          <ListItem key={repo.sha}>
+          <ListItem key={commit.sha}>
             <ListItemText primary={commit.message} secondary={format(commit.date, 'yyyy-MM-dd HH:mm')} />
           </ListItem>
         ))}

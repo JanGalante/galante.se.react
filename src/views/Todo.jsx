@@ -35,6 +35,7 @@ const Topics = () => {
           </ListItem>
         ))}
       </List>
+      <div>{isFetching ? "Background Updating..." : " "}</div>
     </>
   );
 

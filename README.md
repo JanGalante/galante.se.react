@@ -59,6 +59,8 @@ The site uses service workers so remember to clear application data i devtools
   - [ ] Use [Nullish coalescing operator (??)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
   - [ ] Use optional chaining (?.)
   - [ ] Implement a [logging service](https://www.slant.co/topics/2615/~best-javascript-client-side-error-logging-services#1)
+  - [ ] Add login
+  - [ ] Need to be logged in to manipulated todo list
   
 
 API:s to use as data sources
@@ -69,4 +71,6 @@ API:s to use as data sources
 
 Fauna DB
 - https://docs.fauna.com/fauna/current/start/graphql
+- Ducumentation https://docs.fauna.com/fauna/current/security/keys
 - [learn graphQL](https://www.howtographql.com/)
+- 

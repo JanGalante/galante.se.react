@@ -7,12 +7,12 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline'; // CssBaseline kickstart an elegant, consistent, and simple baseline to build upon.
 
 import Loadable from 'react-loadable';
-import Header from "./components/Header.jsx";
-import Home from "./views/Home.jsx";
-import About from "./views/About.jsx";
-import Gravatar from "./views/Gravatar.jsx";
-import NoMatch from "./views/NoMatch.jsx";
-import Lambda from './views/Lambda.jsx';
+import Header from "./components/Header";
+import Home from "./views/Home";
+import About from "./views/About";
+import Gravatar from "./views/Gravatar";
+import NoMatch from "./views/NoMatch";
+import Lambda from './views/Lambda';
 import LazyLoadImage from './views/LazyLoadImage';
 import GridLayout from './views/GridLayout'
 
@@ -20,7 +20,7 @@ import styles from './App.module.css';
 
 
 const LoadableTopics = Loadable({
-  loader: () => import('./views/Topics.jsx'),
+  loader: () => import('./views/Todo'),
   loading() { return <div>Loading...</div> }
 });
 const LoadableGitHub = Loadable({ 
@@ -83,7 +83,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
-      <Route path="/topics" component={LoadableTopics} />
+      <Route path="/todo" component={LoadableTopics} />
       <ThemeProvider theme={theme}>
       <CssBaseline />
         <Route path="/github" component={LoadableGitHub} />

@@ -49,7 +49,7 @@ The site uses service workers so remember to clear application data i devtools
 - [ ] Use React error boundery, [react doc](https://reactjs.org/docs/error-boundaries.html) and [github doc](https://github.com/bvaughn/react-error-boundary)
 - [ ] Use React Suspense and Concurrent mode for data fetching, [video](https://www.youtube.com/watch?v=xk_EWd11T94&feature=youtu.be&app=desktop), [https://github.com/kentcdodds/react-suspense],[epicreact.dev](https://epicreact.dev/)
 - [x] Fetch data with REST
-- [ ] Fetch data with GrapQL
+- [ ] Use and fetch data with GrapQL
 - [x] Place secrets in server variables
 - [ ] Store data in Fauna DB
 - [ ] Fetch data from Fauna DB with GraphQL
@@ -65,3 +65,8 @@ API:s to use as data sources
 - Github
 - Pokemon [api](https://graphql-pokemon.now.sh)
 - Starwars
+
+
+Fauna DB
+- https://docs.fauna.com/fauna/current/start/graphql
+- [learn graphQL](https://www.howtographql.com/)

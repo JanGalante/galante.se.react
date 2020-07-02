@@ -4,7 +4,7 @@ import { ReactQueryDevtools } from 'react-query-devtools'
 
 import { ThemeProvider } from '@material-ui/core/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from '@material-ui/core/CssBaseline'; // CssBaseline kickstart an elegant, consistent, and simple baseline to build upon.
 
 import Loadable from 'react-loadable';
 import Header from "./components/Header.jsx";
@@ -85,7 +85,6 @@ const App = () => (
       <Route path="/about" component={About} />
       <Route path="/topics" component={LoadableTopics} />
       <ThemeProvider theme={theme}>
-      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
       <CssBaseline />
         <Route path="/github" component={LoadableGitHub} />
       </ThemeProvider>

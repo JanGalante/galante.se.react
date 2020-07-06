@@ -1,15 +1,19 @@
-import { fetchAll } from '../src/services/todo';
+import { allTodos } from '../src/services/todo';
 import on from 'await-handler';
 
 exports.handler = async (event, context, callback) => {
-  const [error, result] = await on(fetchAll());
+  const [error, result] = await on(allTodos());
   
   if(error) {
-    return { statusCode: 422, body: `Error....: ${String(error)}` };
+    console.log({errol: error})
+    return {
+      statusCode: 422,
+      body: `Error....: ${String(error)}`
+    };
   }
 
   return {
-    statusCode: 200,
+    statusCode: result?.status ?? 500,
     body: JSON.stringify(result),
     headers: {
       'Content-Type': 'application/json',

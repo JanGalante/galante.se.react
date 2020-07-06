@@ -73,4 +73,8 @@ Fauna DB
 - https://docs.fauna.com/fauna/current/start/graphql
 - Ducumentation https://docs.fauna.com/fauna/current/security/keys
 - [learn graphQL](https://www.howtographql.com/)
-- 
+
+
+Free API:s
+- Movies 'https://api.graph.cool/simple/v1/movies'
+- api.graphql.unicorn

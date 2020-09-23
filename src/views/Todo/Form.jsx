@@ -28,7 +28,7 @@ const Form = ({ addTask }) => {
     event.preventDefault()
     
     console.log({add: newTask})
-    await addTask(newTask);
+    addTask(newTask);
 
     setNewTask({
       title: '',

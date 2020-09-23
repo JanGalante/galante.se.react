@@ -95,7 +95,7 @@ const App = () => (
       <Route component={NoMatch} />
     </Switch>
     </div>
-    <ReactQueryDevtools initialIsOpen={false} />
+    <ReactQueryDevtools initialIsOpen={true} />
   </Router>
 );
 

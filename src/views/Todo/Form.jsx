@@ -39,7 +39,16 @@ const Form = ({ addTask }) => {
   return (
     <>
       <form noValidate autoComplete="off" onSubmit={onSubmit}>
-        <TextField id="title" name="title" value={newTask.title} placeholder="What needs to be done" label="Description" variant="outlined" onChange={handleChange} />
+        <TextField 
+          id="title"
+          name="title"
+          value={newTask.title}
+          placeholder="What needs to be done"
+          label="Description"
+          variant="outlined"
+          onChange={handleChange}
+          style={{'width': '100%'}}
+        />
         <FormControlLabel
           control={
             <Switch

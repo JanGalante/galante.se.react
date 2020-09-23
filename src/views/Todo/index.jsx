@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery, useMutation, useQueryCache } from 'react-query';
 import { List, ListItem, ListItemText, CircularProgress } from '@material-ui/core';
+import { Alert, AlertTitle } from '@material-ui/lab';
 import { FiX } from 'react-icons/fi';
 
 import Form from './Form';
@@ -85,6 +86,12 @@ const Topics = () => {
 
   return (
     <>
+      {/* { isFetching &&
+        <Alert severity="info">
+          <AlertTitle>Info</AlertTitle>
+          Background Updating...
+        </Alert>
+      } */}
       <h1>Todo</h1>
       <Form addTask={addTask} />
       <p>List of todos</p>

@@ -25,7 +25,8 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@material-ui/core": "^4.10.2",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/lab": "4.0.0-alpha.56",
     "applicationinsights": "^1.8.0",
     "await-handler": "^1.1.2",
     "bootstrap": "^3.3.7",

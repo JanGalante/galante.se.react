@@ -58,12 +58,7 @@ const createTodo = async ({ title, completed }) => {
     },
   };
 
-  // const data = await request(endpoint, query, variables)
-  // const data = await graphQLClient.request(mutation, variables)
-  const { data, errors, status } = await graphQLClient.rawRequest(
-    mutation,
-    variables
-  );
+  const { data, errors, status } = await graphQLClient.rawRequest(mutation, variables);
 
   // get the todos from the result
   // no need to map sice it is done with the graphQL query
@@ -76,7 +71,37 @@ const createTodo = async ({ title, completed }) => {
   };
 };
 
+const deleteTodo = async (id) => {
+  const mutation = /* GraphQL */ `
+    mutation deleteTodo($id: ID!) {
+      deleteTodo(id: $id)
+      {
+        _id
+        title
+        completed
+      }
+    }
+  `;
+
+  const variables = {
+    id: id,
+  };
+
+  const { data, errors, status } = await graphQLClient.rawRequest(mutation, variables);
+
+  // get the todos from the result
+  // no need to map sice it is done with the graphQL query
+  const todo = data?.deleteTodo;
+
+  return {
+    errors,
+    status,
+    data: todo, // deleted todo
+  };
+};
+
 export {
   allTodos,
   createTodo,
+  deleteTodo,
 }

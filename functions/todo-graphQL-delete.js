@@ -1,13 +1,8 @@
-import { createTodo } from '../src/services/todo';
+import { deleteTodo } from '../src/services/todo';
 
 exports.handler = async (event, context, callback) => {
-  const { title, completed } = event.queryStringParameters;
-  const todo = {
-    title,
-    completed: completed.toLowerCase() === 'true' ? true : false,
-  }
-
-  const { errors, status, data } = await createTodo(todo);
+  const { id } = event.queryStringParameters;
+  const { errors, status, data } = await deleteTodo(id);
   
   if(errors) {
     return { 

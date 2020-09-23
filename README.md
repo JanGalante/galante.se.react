@@ -48,6 +48,7 @@ The site uses service workers so remember to clear application data i devtools
 - [x] Use React query
 - [ ] Use React error boundery, [react doc](https://reactjs.org/docs/error-boundaries.html) and [github doc](https://github.com/bvaughn/react-error-boundary)
 - [ ] Use React Suspense and Concurrent mode for data fetching, [video](https://www.youtube.com/watch?v=xk_EWd11T94&feature=youtu.be&app=desktop), [https://github.com/kentcdodds/react-suspense],[epicreact.dev](https://epicreact.dev/)
+- [ ] Use react library for icons
 - [x] Fetch data with REST
 - [ ] Use and fetch data with GrapQL
 - [x] Place secrets in server variables
@@ -61,6 +62,7 @@ The site uses service workers so remember to clear application data i devtools
   - [ ] Implement a [logging service](https://www.slant.co/topics/2615/~best-javascript-client-side-error-logging-services#1)
   - [ ] Add login
   - [ ] Need to be logged in to manipulated todo list
+  
   
 
 API:s to use as data sources

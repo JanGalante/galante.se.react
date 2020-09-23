@@ -32,6 +32,7 @@ https://github.com/netlify/create-react-app-lambda
 - https://functions-playground.netlify.app/
 - https://functions.netlify.com/examples/
 - https://docs.netlify.com/functions/build-with-javascript/#format
+- https://blog.kiprosh.com/api-using-netlify-functions/
 
 
 # Problemshoting

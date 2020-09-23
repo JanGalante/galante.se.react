@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import dotenv from 'dotenv'
 
 // set values from .env file as defaults for environment variabled in process.env
-dotenv.config('') // Should be done only once at startup, but has to be solved with lambda functions
+// dotenv.config('') // Should be done only once at startup, but has to be solved with lambda functions
 
 
 const { GITHUB_SECRET } = process.env;

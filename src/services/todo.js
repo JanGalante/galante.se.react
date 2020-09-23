@@ -14,7 +14,6 @@ const graphQLClient = new GraphQLClient(endpoint, {
   },
 })
 
-
 const allTodos = async () => { 
   const query = /* GraphQL */ `
     {
@@ -27,22 +26,20 @@ const allTodos = async () => {
     }
   }`
  
-  const data = await graphQLClient.request(query)
-  // console.log(JSON.stringify(data, undefined, 2))
-
+  const { data, errors, status } = await graphQLClient.rawRequest(query)
   // get the todos from the result
   // no need to map sice it is done with the graphQL query
-  const todos = data?.allTodos?.data;
+  const todos = data.allTodos.data;
 
   return {
-    success: data.ok, // true or false
-    status: data.status, // 200 when OK
-    todos // list of todos
+    errors,
+    status,
+    data: todos // list of todos
   };
 }
 
-const createTodo = async () => {
-  const title = 'Possible to add todo in code';
+const createTodo = async ({ title, completed }) => {
+  // const title = 'Possible to add todo in code';
 
   const mutation = /* GraphQL */ `
     mutation createTodo($data: TodoInput!) {
@@ -52,30 +49,32 @@ const createTodo = async () => {
         completed
       }
     }
-  `
+  `;
 
   const variables = {
     data: {
       title,
-      completed: false,
+      completed,
     },
-  }
+  };
 
   // const data = await request(endpoint, query, variables)
-  const data = await graphQLClient.request(mutation, variables)
+  // const data = await graphQLClient.request(mutation, variables)
+  const { data, errors, status } = await graphQLClient.rawRequest(
+    mutation,
+    variables
+  );
 
-  // console.log(JSON.stringify(data, undefined, 2))
-  
   // get the todos from the result
   // no need to map sice it is done with the graphQL query
   const todos = data?.createTodo;
 
   return {
-    success: data.ok, // true or false
-    status: data.status, // 200 when OK
-    todos // list of todos
+    errors,
+    status,
+    data: todos, // list of todos
   };
-}
+};
 
 export {
   allTodos,

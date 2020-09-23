@@ -2,19 +2,19 @@ import { allTodos } from '../src/services/todo';
 import on from 'await-handler';
 
 exports.handler = async (event, context, callback) => {
-  const [error, result] = await on(allTodos());
   
-  if(error) {
-    console.log({errol: error})
+  const { errors, status, data } = await allTodos(); 
+  if(errors) {
+    console.log({errors: errors})
     return {
-      statusCode: 422,
-      body: `Error....: ${String(error)}`
+      statusCode: status,
+      body: `Error....: ${String(errors)}`
     };
   }
 
   return {
-    statusCode: result?.status ?? 500,
-    body: JSON.stringify(result),
+    statusCode: status,
+    body: JSON.stringify(data),
     headers: {
       'Content-Type': 'application/json',
     },

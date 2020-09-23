@@ -1,19 +1,25 @@
 import { createTodo } from '../src/services/todo';
-import on from 'await-handler';
 
 exports.handler = async (event, context, callback) => {
-  const [error, result] = await on(createTodo());
+  const { title, completed } = event.queryStringParameters;
+  console.log({title, completed});
+  const todo = {
+    title,
+    completed: completed.toLowerCase() === 'true' ? true : false,
+  }
+
+  const { errors, status, data } = await createTodo(todo);
   
-  if(error) {
+  if(errors) {
     return { 
-      statusCode: 422, 
-      body: `Error....: ${String(error)}`
+      statusCode: status, 
+      body: `Error....: ${String(errors)}`
     };
   }
 
   return {
-    statusCode: result?.status ?? 500,
-    body: JSON.stringify(result),
+    statusCode: status,
+    body: JSON.stringify(data),
     headers: {
       'Content-Type': 'application/json',
     },

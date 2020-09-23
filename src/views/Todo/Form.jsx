@@ -25,7 +25,7 @@ const Form = ({ addTask }) => {
 
   const onSubmit = async (event) => {
     // Prevent the form from refreshing the page
-    // event.preventDefault()
+    event.preventDefault()
     
     console.log({add: newTask})
     await addTask(newTask);
@@ -38,7 +38,7 @@ const Form = ({ addTask }) => {
 
   return (
     <>
-      <form noValidate autoComplete="off">
+      <form noValidate autoComplete="off" onSubmit={onSubmit}>
         <TextField id="title" name="title" value={newTask.title} placeholder="What needs to be done" label="Description" variant="outlined" onChange={handleChange} />
         <FormControlLabel
           control={
@@ -54,7 +54,8 @@ const Form = ({ addTask }) => {
         <Button 
           variant="contained"
           color="primary"
-          onClick={onSubmit}>
+          type="submit"
+          >
             Create Todo
         </Button>
       </form>

@@ -17,15 +17,14 @@ const deleteTodo = async (id) => {
 }
 
 const Topics = () => {
-  const fetchTodos = async () => {
-    const response = await fetch('./.netlify/functions/todo-graphQL-read-all'); 
-    const commits = await response.json();
-    return commits;
-  };
-
   const queryCache = useQueryCache()
 
-  const { status, data, error, isFetching } = useQuery(["todos"], fetchTodos);
+  // const { status, data, error, isFetching } = useQuery(["todos"], fetchTodos);
+  const { status, data, error, isFetching } = useQuery(["todos"], async () => {
+    const response = await fetch('./.netlify/functions/todo-graphQL-read-all'); 
+    const todos = await response.json();
+    return todos;
+  });
 
   // TODO: Create hook for optimistic updates
   const [addTask] = useMutation(createTodo, {

@@ -3,5 +3,5 @@
   functions = "built-functions" #  netlify-lambda reads this
   publish = "build"
 
-# [[plugins]]
-# package = "@netlify/plugin-functions-install-core"
+[[plugins]]
+package = "@netlify/plugin-functions-install-core"

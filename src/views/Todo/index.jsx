@@ -1,11 +1,17 @@
 import React from "react";
 import { useQuery, useMutation, useQueryCache } from 'react-query';
 import { List, ListItem, ListItemText, CircularProgress } from '@material-ui/core';
+import { FiX } from 'react-icons/fi';
 
 import Form from './Form';
 
 const createTodo = async (task) => {
   const response = await fetch(`./.netlify/functions/todo-graphQL-create?title=${task.title}&completed=${task.completed}`);
+  return response;
+}
+
+const deleteTodo = async (id) => {
+  const response = await fetch(`./.netlify/functions/todo-graphQL-delete?id=${id}`);
   return response;
 }
 
@@ -19,14 +25,9 @@ const Topics = () => {
   const queryCache = useQueryCache()
 
   const { status, data, error, isFetching } = useQuery(["todos"], fetchTodos);
-  const [mutate] = useMutation(createTodo, {
-    // onSuccess: () => {
-    //   // When this mutation succeeds, invalidate any queries with the `todos` query key
-    //   queryCache.invalidateQueries('todos');
-    // },
-    // onError: (error) => {
-    //   throw error;
-    // },
+
+  // TODO: Create hook for optimistic updates
+  const [addTask] = useMutation(createTodo, {
     onMutate: (task) => {
       // need to cancel any outgoing query refetches so they don't clobber your optimistic update when they resolve
       queryCache.cancelQueries("todos");
@@ -47,17 +48,26 @@ const Topics = () => {
     },
   });
 
-  const addTask = async (task) => {
-    try {
-      const response = await mutate(task)
-      // Todo was successfully created
-      console.log('Todo created');
-      console.log({response});
-    } catch (error) {
-      // Uh oh, something went wrong
-      console.log('Error creating todo')
-    }
-  }
+  const [deleteTask] = useMutation(deleteTodo, {
+    onMutate: (id) => {
+      // need to cancel any outgoing query refetches so they don't clobber your optimistic update when they resolve
+      queryCache.cancelQueries("todos");
+      const previousValue = queryCache.getQueryData("todos");
+      queryCache.setQueryData("todos", (oldData) =>
+        oldData.filter(task => task._id !== id)
+      );
+
+      return previousValue; // return snapshotValue
+    },
+    // On failure, roll back to the previous value
+    onError: (err, variables, previousValue) =>
+      queryCache.setQueryData("todos", previousValue),
+    // After success or failure, refetch the todos query
+    onSettled: () => {
+      queryCache.invalidateQueries("todos");
+    },
+  })
+
 
   if (status === "loading") {
     return <CircularProgress />
@@ -82,8 +92,9 @@ const Topics = () => {
         {data
         .sort((a, b) => a['_id'] < b['_id'] ? 1 : -1)
         .map((todo) => (
-          <ListItem key={todo._id}>
+          <ListItem key={todo._id} divider={true}>
             <ListItemText primary={todo.title} secondary={todo.completed ? 'is completed' : 'is not completed'} />
+            <FiX color="#f44336" onClick={() => deleteTask(todo._id)} />
           </ListItem>
         ))}
       </List>

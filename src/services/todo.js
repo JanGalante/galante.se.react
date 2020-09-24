@@ -99,8 +99,42 @@ const deleteTodo = async (id) => {
   };
 };
 
+const updateTodo = async (task) => {
+  const mutation = /* GraphQL */ `
+    mutation updateTodo($id: ID!, $data: TodoInput!) {
+      updateTodo(id: $id, data: $data)
+      {
+        _id
+        title
+        completed
+      }
+    }
+  `;
+
+  const variables = {
+    id: task.id,
+    data: {
+      title: task.title,
+      completed: task.completed,
+    },
+  };
+
+  const { data, errors, status } = await graphQLClient.rawRequest(mutation, variables);
+
+  // get the todos from the result
+  // no need to map sice it is done with the graphQL query
+  const todo = data?.updateTodo;
+
+  return {
+    errors,
+    status,
+    data: todo, // deleted todo
+  };
+};
+
 export {
   allTodos,
   createTodo,
   deleteTodo,
+  updateTodo,
 }

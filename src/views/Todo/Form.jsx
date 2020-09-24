@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, FormControlLabel, Switch, Button } from '@material-ui/core';
+import { TextField, FormControlLabel, Switch } from '@material-ui/core';
 
 const Form = ({ addTask }) => {
   const [newTask, setNewTask] = useState(() => ({
@@ -60,13 +60,13 @@ const Form = ({ addTask }) => {
           }
           label="Completed"
         />
-        <Button 
+        {/* <Button 
           variant="contained"
           color="primary"
           type="submit"
           >
             Create Todo
-        </Button>
+        </Button> */}
       </form>
       {/* <p>{state.description}</p>
       <p>{state.done.toString()}</p> */}

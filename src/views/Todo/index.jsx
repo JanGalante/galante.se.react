@@ -123,7 +123,6 @@ const Topics = () => {
       } */}
       <h1>Todo</h1>
       <Form addTask={addTask} />
-      <p>List of todos</p>
       <List>
         {data
         .sort((a, b) => a['_id'] < b['_id'] ? 1 : -1)

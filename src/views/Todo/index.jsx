@@ -134,13 +134,11 @@ const Topics = () => {
             /> */}
             <Checkbox 
               checked={todo.completed} 
-              onChange={() => {
-                const toggledTask = {
+              onChange={() => updateTask({
                   ...todo,
                   completed: !todo.completed,
-                }
-                updateTask(toggledTask)
-              }} 
+                })
+              } 
               name={`completed-${todo._id}`}
               // color="primary"
             />
